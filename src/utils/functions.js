@@ -57,7 +57,7 @@ export const DeleteUser = (id) => {
 export const UpdateUser = (info) => {
   const db = getDatabase(firebase);
   const userRef = ref(db, "user/");
-
+  console.log(userRef);
   const updates = {};
 
   updates["user/" + info.id] = info;
