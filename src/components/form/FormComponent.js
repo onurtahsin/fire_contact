@@ -14,12 +14,12 @@ import {
 import { AccountCircle } from "@mui/icons-material";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 
-const FormComponent = ({ info, setInfo }) => {
+const FormComponent = ({ info, setInfo, handleSubmit }) => {
   const handleChange = (e) => {
     e.preventDefault();
-    // const name = e.target.name;
-    // const value = e.target.value;
-    // üstteki gibi uzun uzunda yapabiliriz veya alltaki gibi kısalta da bilirz
+    // const name=e.target.name;
+    // const value=e.target.value;
+    // üstteki gibi tek tek de verebilirz veya alttaki gibi daha kısa şekilde de vereb,lirizx
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
     console.log(info);
@@ -47,12 +47,12 @@ const FormComponent = ({ info, setInfo }) => {
       <h2 className="contact-header">Add Contact</h2>
 
       <Box style={{ backgroundColor: "white", padding: "20px" }}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Stack spacing={3} direction="column">
             <TextField
               variant="outlined"
               name="username"
-              value={info.name}
+              value={info.username}
               onChange={handleChange}
               placeholder="Name"
               InputProps={{
